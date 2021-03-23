@@ -1,0 +1,221 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Application\\DevFreelancer.Application.csproj": {}
+  },
+  "projects": {
+    "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Application\\DevFreelancer.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Application\\DevFreelancer.Application.csproj",
+        "projectName": "DevFreelancer.Application",
+        "projectPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Application\\DevFreelancer.Application.csproj",
+        "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
+        "outputPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fernando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj": {
+                "projectPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj"
+              },
+              "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Infrastructure\\DevFreelancer.Infrastructure.csproj": {
+                "projectPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Infrastructure\\DevFreelancer.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj",
+        "projectName": "DevFreelancer.Core",
+        "projectPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj",
+        "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
+        "outputPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fernando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Infrastructure\\DevFreelancer.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Infrastructure\\DevFreelancer.Infrastructure.csproj",
+        "projectName": "DevFreelancer.Infrastructure",
+        "projectPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Infrastructure\\DevFreelancer.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
+        "outputPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fernando\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj": {
+                "projectPath": "D:\\apps\\asp_net\\DevFreelancer\\DevFreelancer.API\\DevFreelancer.Core\\DevFreelancer.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
