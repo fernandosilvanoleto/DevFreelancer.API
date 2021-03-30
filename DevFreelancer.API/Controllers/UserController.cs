@@ -1,6 +1,12 @@
-﻿using DevFreelancer.Application.InputModels;
+﻿using DevFreelancer.Application.Commands.Users.CreateUser;
+using DevFreelancer.Application.Commands.Users.UpdateUser;
+using DevFreelancer.Application.InputModels;
+using DevFreelancer.Application.Queries.Users.GetAllUser;
+using DevFreelancer.Application.Queries.Users.GetUserById;
 using DevFreelancer.Application.Services.Interfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace DevFreelancer.API.Controllers
 {
@@ -8,23 +14,31 @@ namespace DevFreelancer.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IMediator _mediator;
+        public UserController(IUserService userService, IMediator mediator)
         {
             _userService = userService;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var users = _userService.GetAll();
+            //var users = _userService.GetAll();
+            var getAllUsersQuery = new GetAllUserQuery();
+
+            var users = await _mediator.Send(getAllUsersQuery);
 
             return Ok(users);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var user = _userService.GetUser(id);
+            //var user = _userService.GetUser(id);
+            var command = new GetUserByIdQuery(id);
+
+            var user = await _mediator.Send(command);
 
             if (user == null)
             {
@@ -35,17 +49,22 @@ namespace DevFreelancer.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CreateUserInputModel inputModel)
+        public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
         {
-            var id = _userService.Create(inputModel);
+            //var id = _userService.Create(inputModel);
+            var id = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] UpdateUserInputModel inputModel)
+        public async Task<IActionResult> Put([FromBody] UpdateUserCommand command)
         {
-            _userService.Update(inputModel);
+            //_userService.Update(inputModel);
+            if (command == null)            
+                return NotFound();
+            
+            await _mediator.Send(command);
 
             return Ok();
         }

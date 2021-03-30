@@ -1,4 +1,5 @@
-using DevFreelancer.Application.Commands.CreateProject;
+using DevFreelancer.Application.Commands.ProjectComments.CreateComment;
+using DevFreelancer.Application.Commands.Projects.CreateProject;
 using DevFreelancer.Application.Services.Implementations;
 using DevFreelancer.Application.Services.Interfaces;
 using DevFreelancer.Core.Repositories;
@@ -42,7 +43,8 @@ namespace DevFreelancer.API
             //services.AddScoped<IProjectRepository, ProjectRepository>();
 
             services.AddMediatR(typeof(CreateProjectCommand));
-            
+            services.AddMediatR(typeof(CreateProjectCommentCommand));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DevFreelancer.API", Version = "v1" });

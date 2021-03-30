@@ -1,5 +1,7 @@
-﻿using DevFreelancer.Application.InputModels.Skill;
-using DevFreelancer.Application.Queries.GetAllSkills;
+﻿using DevFreelancer.Application.Commands.Skills.CreateSkill;
+using DevFreelancer.Application.InputModels.Skill;
+using DevFreelancer.Application.Queries.Skills.GetAllSkills;
+using DevFreelancer.Application.Queries.Skills.GetSkillById;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,18 +23,21 @@ namespace DevFreelancer.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            //var query = new GetAllSkillsQuery();
+            var query = new GetAllSkillsQuery();
 
-            //var skills = await _mediator.Send(query);
-            var skills = _skillService.GetAll();
+            var skills = await _mediator.Send(query);
+            //var skills = _skillService.GetAll();
 
             return Ok(skills);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var skill = _skillService.GetSkill(id);
+            //var skill = _skillService.GetSkill(id);
+            var command = new GetSkillByIdQuery(id);
+
+            var skill = await _mediator.Send(command);
 
             if (skill == null)
             {
@@ -43,11 +48,12 @@ namespace DevFreelancer.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CreateSkillInputModel inputModel)
+        public async Task<IActionResult> Post([FromBody] CreateSkillCommand command)
         {
-            var id = _skillService.Create(inputModel);
+            //var id = _skillService.Create(inputModel);
+            var id = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
+            return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
     }
 }
