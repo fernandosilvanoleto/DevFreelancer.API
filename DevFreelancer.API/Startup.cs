@@ -40,7 +40,11 @@ namespace DevFreelancer.API
             services.AddScoped<IUserSkillService, UserSkillService>();
             services.AddScoped<IProjectCommentService, ProjectCommentService>();
 
-            //services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IProjectCommentRepository, ProjectCommentRepository>();
+            services.AddScoped<ISkillRepository, SkillRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserSkillRepository, UserSkillRepository>();
 
             services.AddMediatR(typeof(CreateProjectCommand));
             services.AddMediatR(typeof(CreateProjectCommentCommand));

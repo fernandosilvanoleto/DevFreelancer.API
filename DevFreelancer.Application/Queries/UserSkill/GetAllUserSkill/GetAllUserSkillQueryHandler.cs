@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Application.ViewModels.UserSkill;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -13,19 +14,21 @@ namespace DevFreelancer.Application.Queries.UserSkill.GetAllUserSkill
     public class GetAllUserSkillQueryHandler : IRequestHandler<GetAllUserSkillQuery, List<UserSkillViewAllModel>>
     {
         private readonly DevFreelancerDbContext _dbContext;
-        public GetAllUserSkillQueryHandler(DevFreelancerDbContext dbContext)
+        private readonly IUserSkillRepository _userSkillRepository;
+        public GetAllUserSkillQueryHandler(DevFreelancerDbContext dbContext, IUserSkillRepository userSkillRepository)
         {
             _dbContext = dbContext;
+            _userSkillRepository = userSkillRepository;
         }
         public async Task<List<UserSkillViewAllModel>> Handle(GetAllUserSkillQuery request, CancellationToken cancellationToken)
         {
-            var userSkills = _dbContext.UserSkills;
+            //var userSkills = _dbContext.UserSkills;
+            var userSkills = await _userSkillRepository.GetAllAsync();
 
-            var userSkillViewAllModel = await userSkills
-                .Include(u => u.User)
-                .Include(s => s.Skills)
+            //INCLUDES FORAM PARA O REPOSITORY
+            var userSkillViewAllModel = userSkills                
                 .Select(us => new UserSkillViewAllModel(us.User.FullName, us.Skills.Description))
-                .ToListAsync();
+                .ToList();
 
             return userSkillViewAllModel;
         }

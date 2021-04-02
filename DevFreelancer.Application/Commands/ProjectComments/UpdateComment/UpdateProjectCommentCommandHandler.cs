@@ -1,4 +1,5 @@
-﻿using DevFreelancer.Infrastructure.Persistence;
+﻿using DevFreelancer.Core.Repositories;
+using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using System.Linq;
 using System.Threading;
@@ -8,17 +9,19 @@ namespace DevFreelancer.Application.Commands.ProjectComments.UpdateComment
 {
     public class UpdateProjectCommentCommandHandler : IRequestHandler<UpdateProjectCommentCommand, Unit>
     {
-        private readonly DevFreelancerDbContext _dbContext;
-        public UpdateProjectCommentCommandHandler(DevFreelancerDbContext dbContext)
+        //private readonly DevFreelancerDbContext _dbContext;
+        private readonly IProjectCommentRepository _projectCommentRepository;
+        public UpdateProjectCommentCommandHandler(IProjectCommentRepository projectCommentRepository)
         {
-            _dbContext = dbContext;
+            _projectCommentRepository = projectCommentRepository;
         }
         public async Task<Unit> Handle(UpdateProjectCommentCommand request, CancellationToken cancellationToken)
         {
-            var projectComment = _dbContext.ProjectComments.SingleOrDefault(p => p.Id == request.Id);
+            var projectComment = await _projectCommentRepository.GetProjectCommentByIdAsync(request.Id);
 
             projectComment.Update(request.Content);
-            await _dbContext.SaveChangesAsync();
+
+            await _projectCommentRepository.SaveChangesAsync();
 
             return Unit.Value;
         }

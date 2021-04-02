@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Application.ViewModels;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -13,17 +14,19 @@ namespace DevFreelancer.Application.Queries.Users.GetAllUser
     public class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, List<UserViewAllModel>>
     {
         private readonly DevFreelancerDbContext _dbContext;
-        public GetAllUserQueryHandler(DevFreelancerDbContext dbContext)
+        private readonly IUserRepository _userRepository;
+        public GetAllUserQueryHandler(DevFreelancerDbContext dbContext, IUserRepository userRepository)
         {
             _dbContext = dbContext;
+            _userRepository = userRepository;
         }
         public async Task<List<UserViewAllModel>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
         {
-            var users = _dbContext.Users;
+            var users = await _userRepository.GetAllAsync();
 
-            var userViewAllModel = await users
+            var userViewAllModel = users
                 .Select(u => new UserViewAllModel(u.FullName, u.Email, u.BirthDate, u.CreatedAt, u.Active))
-                .ToListAsync();
+                .ToList();
 
             return userViewAllModel;
         }

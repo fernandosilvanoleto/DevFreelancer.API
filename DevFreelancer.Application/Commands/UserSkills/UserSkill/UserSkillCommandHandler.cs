@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Core.Entities;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using System.Threading;
@@ -8,19 +9,17 @@ namespace DevFreelancer.Application.Commands.UserSkills.UserSkillCommand
 {
     public class UserSkillCommandHandler : IRequestHandler<UserSkillCommand, int>
     {
-        private readonly DevFreelancerDbContext _dbContext;
-        private object inputModel;
-
-        public UserSkillCommandHandler(DevFreelancerDbContext dbContext)
+        //private readonly DevFreelancerDbContext _dbContext;
+        private readonly IUserSkillRepository _userSkillRepository;
+        public UserSkillCommandHandler(IUserSkillRepository userSkillRepository)
         {
-            _dbContext = dbContext;
+            _userSkillRepository = userSkillRepository;
         }
         public async Task<int> Handle(UserSkillCommand request, CancellationToken cancellationToken)
         {
             var userSkill = new UserSkill(request.IdUser, request.IdSkill);
 
-            await _dbContext.UserSkills.AddAsync(userSkill);
-            await _dbContext.SaveChangesAsync();
+            await _userSkillRepository.AddAsync(userSkill);
 
             return userSkill.Id;
         }

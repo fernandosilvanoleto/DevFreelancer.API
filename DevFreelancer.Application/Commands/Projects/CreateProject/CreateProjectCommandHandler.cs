@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Core.Entities;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using System.Threading;
@@ -8,18 +9,18 @@ namespace DevFreelancer.Application.Commands.Projects.CreateProject
 {
     public class CreateProjectCommandHandler : IRequestHandler<CreateProjectCommand, int>
     {
-        private readonly DevFreelancerDbContext _dbContext;
-        public CreateProjectCommandHandler(DevFreelancerDbContext dbContext)
+        //private readonly DevFreelancerDbContext _dbContext;
+        private readonly IProjectRepository _projectRepository;
+        public CreateProjectCommandHandler(IProjectRepository projectRepository)
         {
-            _dbContext = dbContext;
+            _projectRepository = projectRepository;
         }
         // TRATAR AS INFORMAÇÕES E GUARDAR AS INFORMAÇÕES NO BANCO DE 
         public async Task<int> Handle(CreateProjectCommand request, CancellationToken cancellationToken)
         {
             var project = new Project(request.Title, request.Description, request.IdClient, request.IdFreelancer, request.TotalCost, request.FinishedAt);
 
-            await _dbContext.Projects.AddAsync(project);
-            await _dbContext.SaveChangesAsync();
+            await _projectRepository.AddAsync(project);
 
             return project.Id;
         }

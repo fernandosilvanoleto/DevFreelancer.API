@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Application.ViewModels.Skill;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,15 @@ namespace DevFreelancer.Application.Queries.Skills.GetSkillById
     public class GetSkillByIdQueryHandler : IRequestHandler<GetSkillByIdQuery, SkillViewDetailsModel>
     {
         private readonly DevFreelancerDbContext _dbContext;
-        public GetSkillByIdQueryHandler(DevFreelancerDbContext dbContext)
+        private readonly ISkillRepository _skillRepository;
+        public GetSkillByIdQueryHandler(DevFreelancerDbContext dbContext, ISkillRepository skillRepository)
         {
             _dbContext = dbContext;
+            _skillRepository = skillRepository;
         }
         public async Task<SkillViewDetailsModel> Handle(GetSkillByIdQuery request, CancellationToken cancellationToken)
         {
-            var skill = await _dbContext.Skills.SingleOrDefaultAsync(u => u.Id == request.Id);
+            var skill = await _skillRepository.GetByIdAsync(request.Id);
 
             if (skill == null)
             {

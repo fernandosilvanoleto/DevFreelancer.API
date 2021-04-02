@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Application.ViewModels.ProjectComment;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -12,20 +13,19 @@ namespace DevFreelancer.Application.Queries.ProjectComments.GetAllProjectComment
 {
     public class GetAllProjectCommentQueryHandler : IRequestHandler<GetAllProjectCommentQuery, List<ProjectCommentViewAllModel>>
     {
-        private readonly DevFreelancerDbContext _dbContext;
-        public GetAllProjectCommentQueryHandler(DevFreelancerDbContext dbContext)
+        //private readonly DevFreelancerDbContext _dbContext;
+        private readonly IProjectCommentRepository _projectCommentRepository;
+        public GetAllProjectCommentQueryHandler(IProjectCommentRepository projectCommentRepository)
         {
-            _dbContext = dbContext;
+            _projectCommentRepository = projectCommentRepository;
         }
         public async Task<List<ProjectCommentViewAllModel>> Handle(GetAllProjectCommentQuery request, CancellationToken cancellationToken)
         {
-            var projectComments = _dbContext.ProjectComments;
+            var projectComments = await _projectCommentRepository.GetAllProjectCommentsAsync();
 
-            var projectCommentViewAllModel = await projectComments
-                .Include(pr => pr.Project)
-                .Include(u => u.User)
+            var projectCommentViewAllModel = projectComments                
                 .Select(pc => new ProjectCommentViewAllModel(pc.Id, pc.Content, pc.Project.Title, pc.User.FullName, pc.CreatedAt))
-                .ToListAsync();
+                .ToList();
 
             return projectCommentViewAllModel;
         }

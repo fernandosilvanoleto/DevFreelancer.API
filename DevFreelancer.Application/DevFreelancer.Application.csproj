@@ -18,8 +18,4 @@
     <ProjectReference Include="..\DevFreelancer.Infrastructure\DevFreelancer.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Queries\ProjectComments\GetProjectById\" />
-  </ItemGroup>
-
 </Project>

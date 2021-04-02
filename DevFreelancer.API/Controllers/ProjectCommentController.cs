@@ -2,6 +2,7 @@
 using DevFreelancer.Application.Commands.ProjectComments.UpdateComment;
 using DevFreelancer.Application.InputModels.ProjectComment;
 using DevFreelancer.Application.Queries.ProjectComments.GetAllProjectComments;
+using DevFreelancer.Application.Queries.ProjectComments.GetProjectCommentById;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -32,11 +33,14 @@ namespace DevFreelancer.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             // buscar todos ou filtrar
 
-           var projectComment = _projectCommentService.GetProjectComment(id);            
+            //var projectComment = _projectCommentService.GetProjectComment(id);            
+            var command = new GetProjectCommentByIdQuery(id);
+
+            var projectComment = await _mediator.Send(command);
 
             if (projectComment == null)
             {

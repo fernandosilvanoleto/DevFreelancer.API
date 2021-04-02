@@ -1,4 +1,5 @@
 ﻿using DevFreelancer.Application.ViewModels;
+using DevFreelancer.Core.Repositories;
 using DevFreelancer.Infrastructure.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -11,16 +12,15 @@ namespace DevFreelancer.Application.Queries.Projects.GetProjectById
     public class GetProjectByIdQueryHandler : IRequestHandler<GetProjectByIdQuery, ProjectDetailsViewModel>
     {
         private readonly DevFreelancerDbContext _dbContext;
-        public GetProjectByIdQueryHandler(DevFreelancerDbContext dbContext)
+        private readonly IProjectRepository _projectRepository;
+        public GetProjectByIdQueryHandler(DevFreelancerDbContext dbContext, IProjectRepository projectRepository)
         {
-            _dbContext = dbContext;
+            //_dbContext = dbContext;
+            _projectRepository = projectRepository;
         }
         public async Task<ProjectDetailsViewModel> Handle(GetProjectByIdQuery request, CancellationToken cancellationToken)
         {
-            var project = await _dbContext.Projects
-                .Include(p => p.Client)
-                .Include(p => p.Freelancer)
-                .SingleOrDefaultAsync(p => p.Id == request.Id);
+            var project = await _projectRepository.GetByIdAsync(request.Id);
 
             if (project == null) return null;
 

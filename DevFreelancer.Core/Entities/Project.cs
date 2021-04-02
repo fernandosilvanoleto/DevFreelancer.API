@@ -58,7 +58,7 @@ namespace DevFreelancer.Core.Entities
 
         public void Finish()
         {
-            if(Status == ProjectStatusEnum.Created || Status == ProjectStatusEnum.InProgress || Status == ProjectStatusEnum.Suspended || Status == ProjectStatusEnum.Cancelled)
+            if(Status == ProjectStatusEnum.Created || Status == ProjectStatusEnum.InProgress || Status == ProjectStatusEnum.Suspended)
             {
                 Status = ProjectStatusEnum.Finished;
                 FinishedAt = DateTime.Now;
