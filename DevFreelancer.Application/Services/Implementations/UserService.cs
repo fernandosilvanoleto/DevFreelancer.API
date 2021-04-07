@@ -18,7 +18,7 @@ namespace DevFreelancer.Application.Services.Implementations
 
         public int Create(CreateUserInputModel inputModel)
         {
-            var user = new User(inputModel.FullName, inputModel.Email, inputModel.BirthDate);
+            var user = new User(inputModel.FullName, inputModel.Email, inputModel.BirthDate, inputModel.Password, inputModel.Role);
 
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();

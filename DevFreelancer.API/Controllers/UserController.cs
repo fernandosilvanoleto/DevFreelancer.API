@@ -1,16 +1,21 @@
-﻿using DevFreelancer.Application.Commands.Users.CreateUser;
+﻿using DevFreelancer.API.Models;
+using DevFreelancer.Application.Commands.Users.CreateUser;
+using DevFreelancer.Application.Commands.Users.LoginUser;
 using DevFreelancer.Application.Commands.Users.UpdateUser;
 using DevFreelancer.Application.InputModels;
 using DevFreelancer.Application.Queries.Users.GetAllUser;
 using DevFreelancer.Application.Queries.Users.GetUserById;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DevFreelancer.API.Controllers
 {
     [Route("api/users")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -49,6 +54,7 @@ namespace DevFreelancer.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
         {
             //var id = _userService.Create(inputModel);
@@ -67,6 +73,18 @@ namespace DevFreelancer.API.Controllers
             await _mediator.Send(command);
 
             return Ok();
+        }
+
+        [HttpPut("login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
+        {
+            var loginUserViewModel = await _mediator.Send(command);
+
+            if (loginUserViewModel == null)
+                return BadRequest();
+
+            return Ok(loginUserViewModel);
         }
     }
 }

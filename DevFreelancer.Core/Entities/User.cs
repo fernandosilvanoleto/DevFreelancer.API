@@ -7,11 +7,13 @@ namespace DevFreelancer.Core.Entities
 {
     public class User : BaseEntity
     {
-        public User(string fullName, string email, DateTime birthDate)
+        public User(string fullName, string email, DateTime? birthDate, string password, string role)
         {
             FullName = fullName;
             Email = email;
             BirthDate = birthDate;
+            Password = password;
+            Role = role;
 
             CreatedAt = DateTime.Now;
             Active = true;
@@ -23,9 +25,11 @@ namespace DevFreelancer.Core.Entities
 
         public string FullName { get; private set; }
         public string Email { get; private set; }
-        public DateTime BirthDate { get; private set; }
+        public DateTime? BirthDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public bool Active { get; set; }
+        public string Password { get; private set; }
+        public string Role { get; private set; }
 
         // TERÁ UMA LISTA DE SKILLS, POIS O RELACIONAMENTO DE USER PARA SKILL É DE MUITO PARA MUITO (N X N)
         // ALÉM DE UMA TABELA NO MEIO COM NOME DE USERSKILL, AQUI NO USER TERÁ ESSA LISTA, ASSIM COMO EM SKILL

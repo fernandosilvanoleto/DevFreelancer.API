@@ -4,12 +4,15 @@ using DevFreelancer.Application.Queries.Skills.GetAllSkills;
 using DevFreelancer.Application.Queries.Skills.GetSkillById;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DevFreelancer.API.Controllers
 {
     [Route("api/skills")]
+    [Authorize]
     public class SkillsController : ControllerBase
     {
         private readonly ISkillService _skillService;
@@ -49,7 +52,7 @@ namespace DevFreelancer.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateSkillCommand command)
-        {
+        {            
             //var id = _skillService.Create(inputModel);
             var id = await _mediator.Send(command);
 

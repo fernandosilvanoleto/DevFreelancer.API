@@ -7,7 +7,7 @@ namespace DevFreelancer.Application.ViewModels
 {
     public class UserViewAllModel
     {
-        public UserViewAllModel(string fullName, string email, DateTime birthDate, DateTime createdAt, bool active)
+        public UserViewAllModel(string fullName, string email, DateTime? birthDate, DateTime createdAt, bool active)
         {
             FullName = fullName;
             Email = email;
@@ -18,7 +18,7 @@ namespace DevFreelancer.Application.ViewModels
 
         public string FullName { get; private set; }
         public string Email { get; private set; }
-        public DateTime BirthDate { get; private set; }
+        public DateTime? BirthDate { get; private set; }
         public DateTime CreatedAt { get; private set; }
         public bool Active { get; private set; }
     }

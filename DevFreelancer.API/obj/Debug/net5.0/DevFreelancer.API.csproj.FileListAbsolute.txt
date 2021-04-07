@@ -102,7 +102,6 @@ D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Microsoft.OpenApi.dll
-D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -138,3 +137,7 @@ D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\obj\Debug\net5
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\obj\Debug\net5.0\ref\DevFreelancer.API.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\obj\Debug\net5.0\DevFreelancer.API.pdb
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\obj\Debug\net5.0\DevFreelancer.API.genruntimeconfig.cache
+D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\FluentValidation.dll
+D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

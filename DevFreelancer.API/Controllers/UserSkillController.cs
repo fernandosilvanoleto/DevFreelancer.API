@@ -4,12 +4,14 @@ using DevFreelancer.Application.Queries.UserSkill.GetAllUserSkill;
 using DevFreelancer.Application.Queries.UserSkill.GetUserSkillById;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace DevFreelancer.API.Controllers
 {
     [Route("api/userskils")]
+    [Authorize]
     public class UserSkillController : ControllerBase
     {
         private readonly IUserSkillService _userSkillService;

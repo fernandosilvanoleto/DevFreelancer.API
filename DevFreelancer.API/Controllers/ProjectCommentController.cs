@@ -5,12 +5,15 @@ using DevFreelancer.Application.Queries.ProjectComments.GetAllProjectComments;
 using DevFreelancer.Application.Queries.ProjectComments.GetProjectCommentById;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DevFreelancer.API.Controllers
 {
     [Route("api/projectcomments")]
+    [Authorize]
     public class ProjectCommentController : ControllerBase
     {        
         private readonly IProjectCommentService _projectCommentService;

@@ -8,6 +8,7 @@ namespace DevFreelancer.Core.Repositories
     {
         Task<List<User>> GetAllAsync();
         Task<User> GetByIdAsync(int id);
+        Task<User> GetUserByEmailAndPasswordAsync(string email, string passwordHash);
         Task AddAsync(User user);
         Task SaveChangesAsync();
     }

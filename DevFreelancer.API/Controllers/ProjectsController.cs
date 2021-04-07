@@ -9,12 +9,15 @@ using DevFreelancer.Application.Queries.Projects.GetProjectById;
 using DevFreelancer.Application.Services.Implementations;
 using DevFreelancer.Application.Services.Interfaces;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DevFreelancer.API.Controllers
 {
     [Route("api/projects")]
+    [Authorize]
     public class ProjectsController : ControllerBase
     {
         private readonly IProjectService _projectService;
@@ -58,8 +61,9 @@ namespace DevFreelancer.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
-        {
-            if(command.Title.Length > 50)
+        {           
+
+            if (command.Title.Length > 50)
             {
                 return BadRequest();
             }
