@@ -21,9 +21,9 @@ namespace DevFreelancer.Application.Commands.Projects.DeleteProject
 
             var project = await _projectRepository.GetByIdAsync(request.Id);
 
-            project.Cancel();
+            //project.Cancel(); => JOGAR essa responsabilidade para o repository no DeleteAndSaveChangesAsync
 
-            await _projectRepository.DeleteAsync(project);
+            await _projectRepository.DeleteAndSaveChangesAsync(project);
 
             return Unit.Value;
         }

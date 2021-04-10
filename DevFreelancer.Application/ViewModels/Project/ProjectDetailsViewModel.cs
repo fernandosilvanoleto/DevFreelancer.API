@@ -6,6 +6,11 @@ namespace DevFreelancer.Application.ViewModels
 {
     public class ProjectDetailsViewModel
     {
+        // PRECISEI DO CONSTRUTOR POR CAUSA DOS TESTES UNITÁRIOS
+        public ProjectDetailsViewModel()
+        {
+                
+        }
         public ProjectDetailsViewModel(int id, string title, string description, decimal totalCost, DateTime? startedAt, DateTime? finishedAt, string clientFullName, string freelancerFullName)
         {
             Id = id;

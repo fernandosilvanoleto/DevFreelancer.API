@@ -19,9 +19,9 @@ namespace DevFreelancer.Application.Commands.Projects.StartProject
         {
             var project = await _projectRepository.GetByIdAsync(request.Id);
 
-            project.Start();
+            //project.Start();
 
-            await _projectRepository.StartAsync(project);
+            await _projectRepository.StartAndSaveChangesAsync(project);
 
             return Unit.Value;
         }

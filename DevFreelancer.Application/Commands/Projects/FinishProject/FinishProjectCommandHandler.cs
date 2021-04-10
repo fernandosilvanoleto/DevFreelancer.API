@@ -20,9 +20,9 @@ namespace DevFreelancer.Application.Commands.Projects.FinishProject
             //var project = _dbContext.Projects.SingleOrDefault(p => p.Id == request.Id);
             var project = await _projectRepository.GetByIdAsync(request.Id);
 
-            project.Finish();
+            //project.Finish();
 
-            await _projectRepository.FinishAsync(project);
+            await _projectRepository.FinishAndSaveChangesAsync(project);
 
             return Unit.Value;
         }

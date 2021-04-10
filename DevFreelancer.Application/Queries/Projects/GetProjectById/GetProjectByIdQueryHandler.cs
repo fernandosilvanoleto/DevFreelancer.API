@@ -11,9 +11,9 @@ namespace DevFreelancer.Application.Queries.Projects.GetProjectById
 {
     public class GetProjectByIdQueryHandler : IRequestHandler<GetProjectByIdQuery, ProjectDetailsViewModel>
     {
-        private readonly DevFreelancerDbContext _dbContext;
+        //private readonly DevFreelancerDbContext _dbContext;
         private readonly IProjectRepository _projectRepository;
-        public GetProjectByIdQueryHandler(DevFreelancerDbContext dbContext, IProjectRepository projectRepository)
+        public GetProjectByIdQueryHandler(IProjectRepository projectRepository)
         {
             //_dbContext = dbContext;
             _projectRepository = projectRepository;
@@ -24,7 +24,9 @@ namespace DevFreelancer.Application.Queries.Projects.GetProjectById
 
             if (project == null) return null;
 
-            var projectDetailsViewModel = new ProjectDetailsViewModel(
+            var projectDetailsViewModel = new ProjectDetailsViewModel();
+
+            projectDetailsViewModel = new ProjectDetailsViewModel(
                     project.Id,
                     project.Title,
                     project.Description,

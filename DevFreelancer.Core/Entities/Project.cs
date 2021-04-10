@@ -60,7 +60,7 @@ namespace DevFreelancer.Core.Entities
         {
             if(Status == ProjectStatusEnum.Created || Status == ProjectStatusEnum.InProgress || Status == ProjectStatusEnum.Suspended)
             {
-                Status = ProjectStatusEnum.Finished;
+                Status = ProjectStatusEnum.InProgress;
                 FinishedAt = DateTime.Now;
             }
         }

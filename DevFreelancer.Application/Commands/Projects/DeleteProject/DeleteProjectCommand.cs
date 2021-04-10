@@ -3,7 +3,7 @@
 namespace DevFreelancer.Application.Commands.Projects.DeleteProject
 {
     public class DeleteProjectCommand : IRequest<Unit>
-    {
+    {       
         // USEI UM CONSTRUTOR POR CAUSA DO CONTROLLER
         public DeleteProjectCommand(int id)
         {

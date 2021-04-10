@@ -9,9 +9,9 @@ namespace DevFreelancer.Core.Repositories
         Task<List<Project>> GetAllAsync();
         Task<Project> GetByIdAsync(int id);
         Task AddAsync(Project project);
-        Task StartAsync(Project project);
+        Task StartAndSaveChangesAsync(Project project);
         Task SaveChangesAsync();
-        Task DeleteAsync(Project project);
-        Task FinishAsync(Project project);
+        Task DeleteAndSaveChangesAsync(Project project);
+        Task FinishAndSaveChangesAsync(Project project);
     }
 }

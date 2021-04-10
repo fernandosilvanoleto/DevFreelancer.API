@@ -38,8 +38,11 @@ namespace DevFreelancer.Infrastructure.Persistence.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task StartAsync(Project project)
+        public async Task StartAndSaveChangesAsync(Project project)
         {
+            //INICIAR PROJETO
+            project.Start();
+
             // SÓ SALVAR ALTERAÇOES NO BANCO
             await _dbContext.SaveChangesAsync();
         }
@@ -49,14 +52,22 @@ namespace DevFreelancer.Infrastructure.Persistence.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(Project project)
+        public async Task DeleteAndSaveChangesAsync(Project project)
         {
+            // CANCELAR OU DELETAR PROJETO
+            // ISSO AQUI FAZ COMUNICAÇÃO COM O BANCO DE DADOS
+            project.Cancel();
+
             // SÓ SALVAR ALTERAÇOES NO BANCO
-            await _dbContext.SaveChangesAsync();
+            await SaveChangesAsync();
         }
 
-        public async Task FinishAsync(Project project)
+        public async Task FinishAndSaveChangesAsync(Project project)
         {
+            // FINALIZAR PROJETO
+            // ISSO AQUI FAZ COMUNICAÇÃO COM O BANCO DE DADOS
+            project.Finish();
+
             await _dbContext.SaveChangesAsync();
         }
     }

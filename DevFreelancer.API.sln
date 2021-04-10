@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreelancer.API", "DevFre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreelancer.Core", "DevFreelancer.Core\DevFreelancer.Core.csproj", "{BAF3F7F2-18B9-4C6E-B74B-06BD2DF94FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreelancer.Infrastructure", "DevFreelancer.Infrastructure\DevFreelancer.Infrastructure.csproj", "{09679EFA-1C95-4E36-B218-99097663E1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreelancer.Infrastructure", "DevFreelancer.Infrastructure\DevFreelancer.Infrastructure.csproj", "{09679EFA-1C95-4E36-B218-99097663E1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreelancer.Application", "DevFreelancer.Application\DevFreelancer.Application.csproj", "{1CE693D1-3023-4553-A71C-343ADAD2BAC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreelancer.Application", "DevFreelancer.Application\DevFreelancer.Application.csproj", "{1CE693D1-3023-4553-A71C-343ADAD2BAC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreelancer.UnitTests", "DevFreelancer.UnitTests\DevFreelancer.UnitTests.csproj", "{C2F87683-4AEA-4454-978A-2F6EDB7F4D69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1CE693D1-3023-4553-A71C-343ADAD2BAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CE693D1-3023-4553-A71C-343ADAD2BAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CE693D1-3023-4553-A71C-343ADAD2BAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F87683-4AEA-4454-978A-2F6EDB7F4D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F87683-4AEA-4454-978A-2F6EDB7F4D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F87683-4AEA-4454-978A-2F6EDB7F4D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F87683-4AEA-4454-978A-2F6EDB7F4D69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

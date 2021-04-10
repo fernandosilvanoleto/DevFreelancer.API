@@ -21,4 +21,3 @@ D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.Core\obj\Debug\net
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.Core\obj\Debug\netcoreapp3.1\DevFreelancer.Core.dll
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.Core\obj\Debug\netcoreapp3.1\DevFreelancer.Core.pdb
 D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.Core\obj\Debug\netcoreapp3.1\DevFreelancer.Core.genruntimeconfig.cache
-D:\apps\asp_net\DevFreelancer\DevFreelancer.API\DevFreelancer.Core\obj\Debug\netcoreapp3.1\DevFreelancer.Core.csprojAssemblyReference.cache
