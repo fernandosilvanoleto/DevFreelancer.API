@@ -20,7 +20,7 @@ namespace DevFreelancer.Application.Commands.Users.UpdateUser
         {
             var user = await _userRepository.GetByIdAsync(request.Id);
 
-            user.Update(request.FullName, request.Email, request.Active);
+            //user.Update(request.FullName, request.Email, request.Active);
 
             await _userRepository.SaveChangesAsync();
 

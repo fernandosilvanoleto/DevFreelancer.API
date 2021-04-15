@@ -7,6 +7,10 @@ namespace DevFreelancer.Application.ViewModels
 {
     public class UserViewAllModel
     {
+        public UserViewAllModel()
+        {
+
+        }
         public UserViewAllModel(string fullName, string email, DateTime? birthDate, DateTime createdAt, bool active)
         {
             FullName = fullName;

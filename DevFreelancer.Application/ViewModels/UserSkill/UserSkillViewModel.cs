@@ -6,6 +6,11 @@ namespace DevFreelancer.Application.ViewModels.UserSkill
 {
     public class UserSkillViewModel
     {
+        // ESSE CONSTRUCTOR SERVE PARA OS TESTES UNITÁRIOS
+        public UserSkillViewModel()
+        {
+
+        }
         public UserSkillViewModel(int id, string nameUser, string nameSkill)
         {
             Id = id;

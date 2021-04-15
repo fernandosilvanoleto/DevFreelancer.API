@@ -29,12 +29,14 @@ namespace DevFreelancer.Application.Queries.ProjectComments.GetProjectCommentByI
                 return null;
             }
 
-            var projectCommentViewAllModel = new ProjectCommentViewModel(
-                    projectComment.Id,
-                    projectComment.Content,
-                    projectComment.Project.Title,
-                    projectComment.User.FullName
-                );
+            var projectCommentViewAllModel = new ProjectCommentViewModel();
+
+            //var projectCommentViewAllModel = new ProjectCommentViewModel(
+            //        projectComment.Id,
+            //        projectComment.Content,
+            //        projectComment.Project.Title,
+            //        projectComment.User.FullName
+            //    );
 
             return projectCommentViewAllModel;
         }

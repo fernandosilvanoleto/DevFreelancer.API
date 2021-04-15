@@ -7,24 +7,24 @@ namespace DevFreelancer.UnitTests.Core.Entities
 {
     public class ProjectTests
     {
-        //[Fact]
-        //public void TestIProjectStartWorks ()
-        //{
-        //    var project = new Project("Nome de Teste", "Descricao de Teste", 1, 2, 10000, DateTime.Parse("2022-04-08"));
-            
-        //    Assert.Equal(ProjectStatusEnum.Created, project.Status);
-        //    Assert.Null(project.StartedAt);
+        [Fact]
+        public void TestIProjectStartWorks()
+        {
+            var project = new Project("Nome de Teste", "Descricao de Teste", 1, 2, 10000, DateTime.Parse("2022-04-08"));
 
-        //    Assert.NotNull(project.Title);
-        //    Assert.NotEmpty(project.Title);
+            Assert.Equal(ProjectStatusEnum.Created, project.Status);
+            Assert.Null(project.StartedAt);
 
-        //    Assert.NotNull(project.Description);
-        //    Assert.NotEmpty(project.Description);
+            Assert.NotNull(project.Title);
+            Assert.NotEmpty(project.Title);
 
-        //    project.Start();
+            Assert.NotNull(project.Description);
+            Assert.NotEmpty(project.Description);
 
-        //    Assert.Equal(ProjectStatusEnum.InProgress, project.Status);
-        //    Assert.NotNull(project.StartedAt);
-        //}
+            project.Start();
+
+            Assert.Equal(ProjectStatusEnum.InProgress, project.Status);
+            Assert.NotNull(project.StartedAt);
+        }
     }
 }

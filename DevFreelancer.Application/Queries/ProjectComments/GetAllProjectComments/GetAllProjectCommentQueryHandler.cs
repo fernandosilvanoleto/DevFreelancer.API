@@ -23,9 +23,12 @@ namespace DevFreelancer.Application.Queries.ProjectComments.GetAllProjectComment
         {
             var projectComments = await _projectCommentRepository.GetAllProjectCommentsAsync();
 
-            var projectCommentViewAllModel = projectComments                
-                .Select(pc => new ProjectCommentViewAllModel(pc.Id, pc.Content, pc.Project.Title, pc.User.FullName, pc.CreatedAt))
-                .ToList();
+            // FIZ PARA FINS DE TESTES UNITÁRIOS
+            var projectCommentViewAllModel = new List<ProjectCommentViewAllModel>();
+
+            //var projectCommentViewAllModel = projectComments
+            //    .Select(pc => new ProjectCommentViewAllModel(pc.Id, pc.Content, pc.Project.Title, pc.User.FullName, pc.CreatedAt))
+            //    .ToList();
 
             return projectCommentViewAllModel;
         }

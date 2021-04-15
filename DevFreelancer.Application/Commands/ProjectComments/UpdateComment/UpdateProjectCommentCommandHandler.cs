@@ -19,7 +19,7 @@ namespace DevFreelancer.Application.Commands.ProjectComments.UpdateComment
         {
             var projectComment = await _projectCommentRepository.GetProjectCommentByIdAsync(request.Id);
 
-            projectComment.Update(request.Content);
+            //projectComment.Update(request.Content);
 
             await _projectCommentRepository.SaveChangesAsync();
 

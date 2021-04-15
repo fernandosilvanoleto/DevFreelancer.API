@@ -3,6 +3,10 @@ namespace DevFreelancer.Application.ViewModels.UserSkill
 {
     public class UserSkillViewAllModel
     {
+        public UserSkillViewAllModel()
+        {
+                
+        }
         public UserSkillViewAllModel(string nameUser, string nameSkill)
         {
             NameUser = nameUser;

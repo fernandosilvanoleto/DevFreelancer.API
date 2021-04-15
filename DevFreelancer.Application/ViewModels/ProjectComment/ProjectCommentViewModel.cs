@@ -4,6 +4,10 @@ namespace DevFreelancer.Application.ViewModels.ProjectComment
 {
     public class ProjectCommentViewModel
     {
+        public ProjectCommentViewModel()
+        {
+
+        }
         public ProjectCommentViewModel(int id, string content, string nameProject, string nameUser)
         {
             Id = id;

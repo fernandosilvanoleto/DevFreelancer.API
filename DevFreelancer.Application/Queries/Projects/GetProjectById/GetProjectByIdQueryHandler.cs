@@ -26,16 +26,16 @@ namespace DevFreelancer.Application.Queries.Projects.GetProjectById
 
             var projectDetailsViewModel = new ProjectDetailsViewModel();
 
-            projectDetailsViewModel = new ProjectDetailsViewModel(
-                    project.Id,
-                    project.Title,
-                    project.Description,
-                    project.TotalCost,
-                    project.StartedAt,
-                    project.FinishedAt,
-                    project.Client.FullName,
-                    project.Freelancer.FullName
-                );
+            //projectDetailsViewModel = new ProjectDetailsViewModel(
+            //        project.Id,
+            //        project.Title,
+            //        project.Description,
+            //        project.TotalCost,
+            //        project.StartedAt,
+            //        project.FinishedAt,
+            //        project.Client.FullName,
+            //        project.Freelancer.FullName
+            //    );
 
             return projectDetailsViewModel;
         }

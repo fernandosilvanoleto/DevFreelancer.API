@@ -6,6 +6,10 @@ namespace DevFreelancer.Application.ViewModels.ProjectComment
 {
     public class ProjectCommentViewAllModel
     {
+        public ProjectCommentViewAllModel()
+        {
+
+        }
         public ProjectCommentViewAllModel(int id, string content, string nameProject, string nameUser, DateTime createdAt)
         {
             Id = id;
