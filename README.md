@@ -1,6 +1,4 @@
-Projeto: DevFreelancer.API
-Idealizador: Luis Felipe
-Desenvolvedor: Fernando Silva Noleto
+Projeto: DevFreelancer.API - Idealizador: Luis Felipe - Desenvolvedor: Fernando Silva Noleto
 
 O projeto é basicamente um sistema que contrata devs freellancers para projetos antes cadastrados por clientes, estes que escolhem os devs conforme suas habilidades pessoais e profissionais, além disso, opções para comentarem os projetos em atividades, tanto os clientes como os devs. O curso foi idealizado e ministrado pelo @Luis, no qual usou as tecnologias Asp Net Core atuais.
 
