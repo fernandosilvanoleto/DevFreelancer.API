@@ -1,4 +1,4 @@
-Nome do Projeto: DevFreelancer.API
+Projeto: DevFreelancer.API
 Idealizador: Luis Felipe
 Desenvolvedor: Fernando Silva Noleto
 
